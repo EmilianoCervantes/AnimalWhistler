@@ -1,2 +1,2 @@
 # AnimalWhistler
-## For Android Studio
+## For Android Phone and Tablet, v. 4.0.3 (IceCreamSandwich)
