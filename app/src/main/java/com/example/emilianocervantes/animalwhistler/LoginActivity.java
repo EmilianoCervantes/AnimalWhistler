@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends Activity {
 
     private EditText user, password;
+    private Button entrar, registrar;
+
+    private final int REQUEST_CODE = 7007;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,7 @@ public class LoginActivity extends Activity {
     }
 
     public void entrar(View view){
-
+        /*
         if(TextUtils.isEmpty(user.getText())){
             user.setError("Captura tu correo");
             return;
@@ -33,6 +37,11 @@ public class LoginActivity extends Activity {
 
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
         startActivity(intent);
-        finish();
+        finish();*/
+    }
+
+    public void registrarUser(View view){
+        Intent intent = new Intent(this,RegistroActivity.class);
+        startActivityForResult(intent, REQUEST_CODE);
     }
 }

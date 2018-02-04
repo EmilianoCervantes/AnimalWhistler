@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorVerdecito">#AADED4</color>
+    <color name="colorFondoRegistro">#343F4B</color>
+    <color name="colorCamposResgistro">#5681B6</color>
+    <color name="colorBotonRegistro">#F95F62</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
