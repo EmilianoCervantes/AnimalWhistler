@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "809711453539",
+    "firebase_url": "https://animalwhistlermx.firebaseio.com",
+    "project_id": "animalwhistlermx",
+    "storage_bucket": "animalwhistlermx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809711453539:android:fe32648d8ca78577",
+        "android_client_info": {
+          "package_name": "com.example.emilianocervantes.animalwhistler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809711453539-lgt878lrh11i4jslhkqspa90l4uc0sn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD61ohGDF_mMUjLB49h0HHiSwCEx_MZxLQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
