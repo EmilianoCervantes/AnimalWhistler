@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Animal Whistler</string>
+    <string name="title_activity_localizacion_mascotas">Map</string>
 </resources>
