@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Animal Whistler</string>
     <string name="title_activity_localizacion_mascotas">Map</string>
+    <string name="zoomin">Zoom In</string>
+    <string name="zoomout">Zoom Out</string>
+    <string name="chatmessage">Tu mensaje...</string>
+    <string name="sendmessage">Enviar</string>
 </resources>

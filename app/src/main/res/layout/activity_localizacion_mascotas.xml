@@ -13,4 +13,29 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         tools:context="com.example.emilianocervantes.animalwhistler.LocalizacionMascotasActivity" />
+
+    <Button
+        android:id="@+id/zoomIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="28dp"
+        android:onClick="execute"
+        android:text="@string/zoomin" />
+
+    <Button
+        android:id="@+id/zoomOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/zoomIn"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_toEndOf="@+id/zoomIn"
+        android:layout_toRightOf="@+id/zoomIn"
+        android:onClick="execute"
+        android:text="@string/zoomout" />
 </RelativeLayout>

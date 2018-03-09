@@ -40,7 +40,8 @@
 
         <activity
             android:name=".LocalizacionMascotasActivity"
-            android:label="@string/title_activity_localizacion_mascotas"></activity>
+            android:label="@string/title_activity_localizacion_mascotas" />
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
