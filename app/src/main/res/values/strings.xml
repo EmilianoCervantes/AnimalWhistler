@@ -1,20 +1,25 @@
 <resources>
-    <string name="app_name">Animal Whistler</string>
-    <string name="title_activity_localizacion_mascotas">Map</string>
-    <string name="zoomin">Zoom In</string>
-    <string name="zoomout">Zoom Out</string>
-    <string name="chatmessage">Tu mensaje...</string>
-    <string name="sendmessage">Enviar</string>
-    <string name="title_activity_main">MainActivity</string>
-
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="app_name">AnimalWhistler2</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_example">Example action</string>
+    <string name="action_settings">LogOut</string>
+    <string name="title_activity_maps">Map</string>
 
-    <string name="action_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="web_client_id">357143443759-t3k29rsj540oebcin4sl1q022963pq2a.apps.googleusercontent.com</string>
+
+    <string name="loading">LOADING...</string>
+    <string name="preguntareporte">¿Encontraste una mascota perdida?</string>
+    <string name="reportala">REPÓRTALA!!!</string>
+    <string name="nombre">Nombre</string>
+    <string name="tipo">Tipo Ej: Perro, Gato, Iguana, ...</string>
+    <string name="raza">Raza Ej: Chihuahua, Pastor Alemán, ...</string>
+    <string name="color">Color</string>
+    <string name="visto">Lugar Ej: Calle, Colonia, Zona</string>
+    <string name="descripcion">Descripción</string>
+    <string name="enviar">Enviar</string>
 </resources>

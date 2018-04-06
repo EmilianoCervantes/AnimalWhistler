@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/perrosplash"
-    tools:context="com.example.emilianocervantes.animalwhistler.SplashActivity">
+    tools:context="com.example.emilianocervantes.animalwhistler2.SplashActivity">
+
 
 </android.support.constraint.ConstraintLayout>

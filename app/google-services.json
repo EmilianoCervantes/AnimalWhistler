@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "809711453539",
-    "firebase_url": "https://animalwhistlermx.firebaseio.com",
-    "project_id": "animalwhistlermx",
-    "storage_bucket": "animalwhistlermx.appspot.com"
+    "project_number": "357143443759",
+    "firebase_url": "https://animalwhistler-57228.firebaseio.com",
+    "project_id": "animalwhistler-57228",
+    "storage_bucket": "animalwhistler-57228.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:809711453539:android:fe32648d8ca78577",
+        "mobilesdk_app_id": "1:357143443759:android:3d5af5204f152861",
         "android_client_info": {
-          "package_name": "com.example.emilianocervantes.animalwhistler"
+          "package_name": "com.example.emilianocervantes.animalwhistler2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "809711453539-lgt878lrh11i4jslhkqspa90l4uc0sn5.apps.googleusercontent.com",
+          "client_id": "357143443759-et485j949cj2ve503ja08n4ilcegpj0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.emilianocervantes.animalwhistler2",
+            "certificate_hash": "8233eb6ded2da982c5f26c8287bfd5b1b44cc6ea"
+          }
+        },
+        {
+          "client_id": "357143443759-t3k29rsj540oebcin4sl1q022963pq2a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD61ohGDF_mMUjLB49h0HHiSwCEx_MZxLQ"
+          "current_key": "AIzaSyDw628hw9Wa4D0D4UPEOsCVNj4yCtkucAo"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357143443759-t3k29rsj540oebcin4sl1q022963pq2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
