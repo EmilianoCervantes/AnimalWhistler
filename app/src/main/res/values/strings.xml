@@ -22,4 +22,6 @@
     <string name="visto">Lugar Ej: Calle, Colonia, Zona</string>
     <string name="descripcion">Descripción</string>
     <string name="enviar">Enviar</string>
+    <string name="hintmessagechatbot">Ingresa tu mensaje</string>
+    <string name="send">Enviar</string>
 </resources>
