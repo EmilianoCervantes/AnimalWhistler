@@ -132,23 +132,31 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_reporte) {
             // Handle the camera action
             AnimalPerdidoFormFragment formAnimalFragment = new AnimalPerdidoFormFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.mainLayout, formAnimalFragment).commit();
-        } else if (id == R.id.nav_video) {
-            YoutubeFragment youtubeFragment = new YoutubeFragment();
+        } else if (id == R.id.nav_lista_reportes) {
+            ListaAnimalesPerdidosFragment listaAnimales = new ListaAnimalesPerdidosFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.mainLayout, youtubeFragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.mainLayout, listaAnimales).commit();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_video) {
+            YoutubeFragment youtube = new YoutubeFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.mainLayout, youtube).commit();
 
         } else if (id == R.id.nav_mapa) {
 
             AnimalesPerdidosFragment animalesPerdidosFragment = new AnimalesPerdidosFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.mainLayout, animalesPerdidosFragment).commit();
+        } else if (id == R.id.nav_chatbot) {
+
+            ChatbotFragment chatbot = new ChatbotFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.mainLayout, chatbot).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
