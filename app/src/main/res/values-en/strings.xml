@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Animal Whistler</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Log Out</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading">LOADING...</string>
+    <string name="preguntareporte">Did you find a missing pet?</string>
+    <string name="reportala">Report it!!</string>
+    <string name="nombre">Name</string>
+    <string name="tipo">Ex: Dog, Cat, Parakeet...</string>
+    <string name="raza">Breed ex: Chihuahua, Sheppard, Bulldog</string>
+    <string name="color">Color</string>
+    <string name="visto">Place (Street, Colony, Zip code, City)</string>
+    <string name="descripcion">Description</string>
+    <string name="hintmessagechatbot">Insert message</string>
+    <string name="send">Send</string>
+    <string name="zoomin">Zoom In</string>
+    <string name="zoomout">Zoom out</string>
+</resources>

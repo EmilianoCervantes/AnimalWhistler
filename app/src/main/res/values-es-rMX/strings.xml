@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Animal Whistler</string>
+    <string name="navigation_drawer_open">Abrir navegador</string>
+    <string name="navigation_drawer_close">Cerrar navegador</string>
+    <string name="action_settings">Salir</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="hello_blank_fragment">Hola fragmento vacío</string>
+    <string name="loading">Cargando...</string>
+    <string name="preguntareporte">¿Encontraste una mascota perdida?</string>
+    <string name="reportala">¡¡¡Repórtala!!!</string>
+    <string name="nombre">Nombre</string>
+    <string name="tipo">Tipo animal (perro, gato, etc)</string>
+    <string name="raza">Raza ej: bulldog, chihuahua</string>
+    <string name="color">Color</string>
+    <string name="visto">Lugar de aparición (Calle, Colonia, CP, Ciudad)</string>
+    <string name="descripcion">Descripción (razgos distintivos)</string>
+    <string name="hintmessagechatbot">Inserta un mensaje</string>
+    <string name="zoomin">Acercar</string>
+    <string name="zoomout">Alejar</string>
+    <string name="send">Enviar</string>
+</resources>
