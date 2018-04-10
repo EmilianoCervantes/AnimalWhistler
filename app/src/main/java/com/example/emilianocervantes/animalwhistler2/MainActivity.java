@@ -137,7 +137,10 @@ public class MainActivity extends AppCompatActivity
             AnimalPerdidoFormFragment formAnimalFragment = new AnimalPerdidoFormFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.mainLayout, formAnimalFragment).commit();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_video) {
+            YoutubeFragment youtubeFragment = new YoutubeFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.mainLayout, youtubeFragment).commit();
 
         } else if (id == R.id.nav_slideshow) {
 

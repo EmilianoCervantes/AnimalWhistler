@@ -9,9 +9,9 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Inicio" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_video"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Perfil" />
+            android:title="Video animales perdidos" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
