@@ -24,4 +24,6 @@
     <string name="enviar">Enviar</string>
     <string name="hintmessagechatbot">Ingresa tu mensaje</string>
     <string name="send">Enviar</string>
+    <string name="zoomin">Zoom In</string>
+    <string name="zoomout">Zoom Out</string>
 </resources>

@@ -24,7 +24,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:onClick="funcionesMapa"
-        android:text="Zoom In"
+        android:text="@string/zoomin"
         app:layout_constraintEnd_toStartOf="@+id/alejar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
         android:layout_marginEnd="156dp"
         android:layout_marginTop="16dp"
         android:onClick="funcionesMapa"
-        android:text="Zoom Out"
+        android:text="@string/zoomout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/map" />
 

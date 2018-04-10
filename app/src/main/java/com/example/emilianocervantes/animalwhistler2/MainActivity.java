@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if(firebaseUser != null){
-                    Toast.makeText(getApplicationContext(), "Welcome to the jungle", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_LONG).show();
                 }else{
                     startActivityForResult(
                             AuthUI.getInstance()
