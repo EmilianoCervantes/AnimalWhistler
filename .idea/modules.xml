@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnimalWhistler.iml" filepath="$PROJECT_DIR$/AnimalWhistler.iml" />
+      <module fileurl="file://D:/ProgramFiles/ProyectosAndroid/AnimalWhistler1/AnimalWhistler.iml" filepath="D:/ProgramFiles/ProyectosAndroid/AnimalWhistler1/AnimalWhistler.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/AnimalWhistler.iml" filepath="$PROJECT_DIR$/.idea/AnimalWhistler.iml" />
-      <module fileurl="file://D:\ProgramFiles\ProyectosAndroid\AnimalWhistler1\AnimalWhistler.iml" filepath="D:\ProgramFiles\ProyectosAndroid\AnimalWhistler1\AnimalWhistler.iml" />
-      <module fileurl="file://C:\Users\ovman\StudioProjects\AnimalWhistler\.idea\AnimalWhistler1.iml" filepath="C:\Users\ovman\StudioProjects\AnimalWhistler\.idea\AnimalWhistler1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AnimalWhistler1.iml" filepath="$PROJECT_DIR$/.idea/AnimalWhistler1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\ProgramFiles\ProyectosAndroid\AnimalWhistler1\app\app.iml" filepath="D:\ProgramFiles\ProyectosAndroid\AnimalWhistler1\app\app.iml" />
+      <module fileurl="file://D:/ProgramFiles/ProyectosAndroid/AnimalWhistler1/app/app.iml" filepath="D:/ProgramFiles/ProyectosAndroid/AnimalWhistler1/app/app.iml" />
     </modules>
   </component>
 </project>
