@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_reporte"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_reportar"
             android:title="Reportar animal perdido" />
         <item
             android:id="@+id/nav_lista_reportes"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_lista"
             android:title="Ver animales perdidos" />
         <item
             android:id="@+id/nav_video"
@@ -18,11 +18,11 @@
             android:title="Video: Animales Perdidos" />
         <item
             android:id="@+id/nav_mapa"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_map"
             android:title="Mapa" />
         <item
             android:id="@+id/nav_chatbot"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_chatbot"
             android:title="Chatbot" />
     </group>
 
