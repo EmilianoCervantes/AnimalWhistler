@@ -55,7 +55,7 @@ public class ChatbotFragment extends Fragment implements AIListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final AIConfiguration config = new AIConfiguration("73e6638ad2ec463388059aefc4fadb68",
+        final AIConfiguration config = new AIConfiguration("0ef07f37054047afb19fffd9ff0786a5",
                 AIConfiguration.SupportedLanguages.Spanish,
                 AIConfiguration.RecognitionEngine.System);
 

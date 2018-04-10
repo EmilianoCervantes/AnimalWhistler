@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity
             }
         };
         firebaseAuth.addAuthStateListener(stateListener);
-
     }
 
     @Override
