@@ -14,10 +14,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.emilianocervantes.animalwhistler2.Adapters.ChatbotAdapter;
+import com.example.emilianocervantes.animalwhistler2.Models.ChatbotPojo;
 import com.google.gson.JsonElement;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import ai.api.AIDataService;
@@ -35,10 +39,12 @@ public class ChatbotFragment extends Fragment implements AIListener {
 
     private EditText editText;
     private Button button;
-    private TextView textView;
 
     private AIService aiService;
     private AIDataService aiDataService;
+
+    private ChatbotAdapter adapter;
+    private ListView lista;
 
     public ChatbotFragment() {
         // Required empty public constructor
@@ -55,6 +61,10 @@ public class ChatbotFragment extends Fragment implements AIListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        lista = (ListView)view.findViewById(R.id.listaMensajesChatbot);
+        adapter = new ChatbotAdapter(getActivity(), R.layout.mensaje_chat_layout, new ArrayList<ChatbotPojo>());
+        lista.setAdapter(adapter);
+
         final AIConfiguration config = new AIConfiguration("0ef07f37054047afb19fffd9ff0786a5",
                 AIConfiguration.SupportedLanguages.Spanish,
                 AIConfiguration.RecognitionEngine.System);
@@ -65,12 +75,12 @@ public class ChatbotFragment extends Fragment implements AIListener {
 
         editText = (EditText)view.findViewById(R.id.messageText);
         button = (Button)view.findViewById(R.id.sendChatButton);
-        textView = (TextView)view.findViewById(R.id.chatView);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new SendRequestTask(aiDataService).execute(editText.getText().toString());
+                editText.setText("");
             }
         });
     }
@@ -100,9 +110,14 @@ public class ChatbotFragment extends Fragment implements AIListener {
         protected void onPostExecute(AIResponse aiResponse) {
             super.onPostExecute(aiResponse);
             Result result = aiResponse.getResult();
+            /*
             textView.append("You: " + result.getResolvedQuery() + "\r\n");
-            textView.append("Bot: " + result.getFulfillment().getSpeech() + "\r\n");
-        }
+            textView.append("Bot: " + result.getFulfillment().getSpeech() + "\r\n");*/
+            ChatbotPojo mensajepersona = new ChatbotPojo("user", result.getResolvedQuery(), 1);
+            adapter.add(mensajepersona);
+            ChatbotPojo mensajeBot = new ChatbotPojo("bot", result.getFulfillment().getSpeech(), 0);
+            adapter.add(mensajeBot);
+         }
     }
 
 
