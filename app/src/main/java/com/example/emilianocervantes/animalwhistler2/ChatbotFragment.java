@@ -1,6 +1,9 @@
 package com.example.emilianocervantes.animalwhistler2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,12 +19,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.emilianocervantes.animalwhistler2.Adapters.ChatbotAdapter;
 import com.example.emilianocervantes.animalwhistler2.Models.ChatbotPojo;
 import com.google.gson.JsonElement;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map;
 
 import ai.api.AIDataService;
@@ -35,7 +40,9 @@ import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
 import ai.api.model.Result;
 
-public class ChatbotFragment extends Fragment implements AIListener {
+import static android.app.Activity.RESULT_OK;
+
+public class ChatbotFragment extends Fragment implements AIListener, TextToSpeech.OnInitListener {
 
     private EditText editText;
     private Button button;
@@ -45,6 +52,10 @@ public class ChatbotFragment extends Fragment implements AIListener {
 
     private ChatbotAdapter adapter;
     private ListView lista;
+
+    private TextToSpeech textToSpeech = null;
+    private final int CHECK_TTS = 1000;
+    private final int CHECK_STT = 1007;
 
     public ChatbotFragment() {
         // Required empty public constructor
@@ -83,6 +94,48 @@ public class ChatbotFragment extends Fragment implements AIListener {
                 editText.setText("");
             }
         });
+
+        Intent ttsIntent = new Intent();
+        ttsIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(ttsIntent, CHECK_TTS);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case CHECK_TTS:
+                if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                    textToSpeech = new TextToSpeech(getActivity(), this);
+                } else {
+
+                    Intent installIntent = new Intent();
+                    installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                    startActivity(installIntent);
+                }
+                break;
+            case CHECK_STT:
+                if(resultCode == RESULT_OK && data != null){
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            if (textToSpeech != null) {
+                int result = textToSpeech.setLanguage(Locale.getDefault());
+                if (result == TextToSpeech.LANG_MISSING_DATA ||
+                        result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Toast.makeText(getActivity(), "TTS language is not supported", Toast.LENGTH_LONG).show();
+                } else {
+                    talkToMe("TTS is ready", 0);
+                }
+            }
+        } else {
+            Toast.makeText(getActivity(), "TTS initialization failed", Toast.LENGTH_LONG).show();
+        }
     }
 
     public class SendRequestTask extends AsyncTask<String, String, AIResponse>{
@@ -116,8 +169,25 @@ public class ChatbotFragment extends Fragment implements AIListener {
             ChatbotPojo mensajepersona = new ChatbotPojo("user", result.getResolvedQuery(), 1);
             adapter.add(mensajepersona);
             ChatbotPojo mensajeBot = new ChatbotPojo("bot", result.getFulfillment().getSpeech(), 0);
+            talkToMe(mensajeBot.getMessage(), 1);
             adapter.add(mensajeBot);
          }
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+        super.onDestroyView();
+    }
+
+    private void talkToMe(String text, int qmode) {
+        if (qmode == 1)
+            textToSpeech.speak(text, TextToSpeech.QUEUE_ADD, null);
+        else
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
 
