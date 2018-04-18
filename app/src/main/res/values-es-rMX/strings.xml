@@ -14,7 +14,7 @@
     <string name="raza">Raza ej: bulldog, chihuahua</string>
     <string name="color">Color</string>
     <string name="visto">Lugar de aparición (Calle, Colonia, CP, Ciudad)</string>
-    <string name="descripcion">Descripción (razgos distintivos)</string>
+    <string name="descripcion">Descripción (razgos distintivos de la mascota)</string>
     <string name="hintmessagechatbot">Inserta un mensaje</string>
     <string name="zoomin">Acercar</string>
     <string name="zoomout">Alejar</string>

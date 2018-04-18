@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.emilianocervantes.animalwhistler2.Models.MascotaPerdidaPojo;
@@ -22,8 +26,11 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class AnimalPerdidoFormFragment extends Fragment {
 
-    private EditText nombre, tipo, raza, color, lugar, descripcion;
+    private EditText nombre, lugar, descripcion;
     private Button enviar;
+
+    private Spinner tipoAnimal, raza, color;
+    private String animalSeleccionado, razaSeleccionada, colorSeleccionado;
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
@@ -45,9 +52,11 @@ public class AnimalPerdidoFormFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         nombre = (EditText)view.findViewById(R.id.campoNombre);
-        tipo = (EditText)view.findViewById(R.id.campoTipo);
-        raza = (EditText)view.findViewById(R.id.campoRaza);
-        color = (EditText)view.findViewById(R.id.campoColor);
+
+        tipoAnimal = (Spinner)view.findViewById(R.id.campoTipo);
+        raza = (Spinner)view.findViewById(R.id.campoRaza);
+        color = (Spinner)view.findViewById(R.id.campoColor);
+
         lugar = (EditText)view.findViewById(R.id.campoLugar);
         descripcion = (EditText)view.findViewById(R.id.campoDescripcion);
         enviar = (Button)view.findViewById(R.id.botonForm);
@@ -55,23 +64,103 @@ public class AnimalPerdidoFormFragment extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("animalesperdidos");
 
+        final String[] animales = {"Perro", "Gato"};
+        //, , , , , , , , , , , , , , ,
+        final String[] razasPerro = {
+                "Akita", "Beagle", "Border Collie", "Boxer", "Bulldog", "Bull Terrier", "Chihuhua", "Cocker", "Doberman", "Golden",
+                "Husky", "Labrador", "Maltese", "Pastor Alemán", "Pastor Inglés", "Pitbull", "Pointer", "Pug", "Rottweiler", "San Bernardo",
+                "Schnauzer", "Shih Tzu", "Yorkshire"
+        };
+        final String[] razasGato = {
+                "Abisino", "American Shorthair", "Bengala", "Bobtail", "British", "Burmés", "Cornish Rex", "Dragon Li", "Exótico", "Himalayo",
+                "Main Coon", "Nebelung", "Noruego", "Ocicat", "Persa", "Peterbald", "Ragdoll", "Sagrado de Birmania", "Savannah", "Scottish Fold",
+                "Siamés", "Siberiano", "Sphynx", "Tonkinés"
+        };
+        final String[] colores = {"Amarillento", "Amarronado", "Anaranjado", "Azulado", "Blanquecino", "Café", "Grisáceo",
+                "Magenta", "Negruzco", "Rojizo", "Rosado", "Verdoso", "Verduzco", "Violáceo"
+        };
+
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, animales);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, animales);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tipoAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                animalSeleccionado = animales[i];
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //
+            }
+        });
+        tipoAnimal.setAdapter(adapter);
+
+        ArrayAdapter<String> adapterAnimales;
+        if (animalSeleccionado.equalsIgnoreCase("Perro")){
+            adapterAnimales = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1, razasPerro);
+        } else {
+            adapterAnimales = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1, razasGato);
+        }
+        adapterAnimales.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        raza.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (animalSeleccionado.equalsIgnoreCase("Perro")){
+                    razaSeleccionada = razasPerro[i];
+                } else {
+                    razaSeleccionada = razasGato[i];
+                }
+
+                if(animalSeleccionado.equalsIgnoreCase("Perro")){
+                    //
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+        raza.setAdapter(adapterAnimales);
+
+        ArrayAdapter<String> adapterColor = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, colores);
+        adapterColor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                colorSeleccionado = colores[i];
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MascotaPerdidaPojo animal = new MascotaPerdidaPojo();
+                if(TextUtils.isEmpty(nombre.getText())){
+                    nombre.setError("Si no tiene un nombre pon 'No se encontró'.");
+                    return;
+                }
+                if(TextUtils.isEmpty(descripcion.getText())){
+                    descripcion.setError("Anexa detalles particulares de la mascota, su estado y cosas que te parezcan relevantes.");
+                    return;
+                }
                 animal.setNombre(nombre.getText().toString());
-                animal.setTipo(tipo.getText().toString());
-                animal.setRaza(raza.getText().toString());
-                animal.setColor(color.getText().toString());
+                //animal.setTipo(tipoAnimal.getText().toString());
+                animal.setTipo(animalSeleccionado);
+                //animal.setRaza(raza.getText().toString());
+                animal.setRaza(razaSeleccionada);
+                //animal.setColor(color.getText().toString());
+                animal.setColor(colorSeleccionado);
                 animal.setLugar(lugar.getText().toString());
                 animal.setDescripcion(descripcion.getText().toString());
 
                 databaseReference.push().setValue(animal);
 
                 nombre.setText("");
-                tipo.setText("");
-                raza.setText("");
-                color.setText("");
+                //tipoAnimal.setText("");
+                //raza.setText("");
+                //color.setText("");
                 lugar.setText("");
                 descripcion.setText("");
 

@@ -20,7 +20,7 @@
     <string name="raza">Raza Ej: Chihuahua, Pastor Alemán, ...</string>
     <string name="color">Color</string>
     <string name="visto">Lugar Ej: Calle, Colonia, CP, Ciudad</string>
-    <string name="descripcion">Descripción</string>
+    <string name="descripcion">Descripción (razgos particulares y cosas importantes del animal)</string>
     <string name="hintmessagechatbot">Ingresa tu mensaje</string>
     <string name="zoomin">Zoom In</string>
     <string name="zoomout">Zoom Out</string>

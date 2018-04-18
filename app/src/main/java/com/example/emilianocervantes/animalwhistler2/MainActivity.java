@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_LONG).show();
                 }else{
                     startActivityForResult(
-                            AuthUI.getInstance()
+                            AuthUI
+                                    .getInstance()
                                     .createSignInIntentBuilder()
                                     .setAvailableProviders(
                                             Arrays.asList(

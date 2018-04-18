@@ -14,7 +14,7 @@
     <string name="raza">Breed ex: Chihuahua, Sheppard, Bulldog</string>
     <string name="color">Color</string>
     <string name="visto">Place (Street, Colony, Zip code, City)</string>
-    <string name="descripcion">Description</string>
+    <string name="descripcion">Description (peculiar things about the animal)</string>
     <string name="hintmessagechatbot">Insert message</string>
     <string name="send">Send</string>
     <string name="zoomin">Zoom In</string>
