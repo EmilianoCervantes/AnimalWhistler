@@ -36,6 +36,8 @@ public class AnimalPerdidoFormFragment extends Fragment {
     private DatabaseReference databaseReference;
 
 
+
+
     public AnimalPerdidoFormFragment() {
         // Required empty public constructor
     }
@@ -69,16 +71,32 @@ public class AnimalPerdidoFormFragment extends Fragment {
         final String[] razasPerro = {
                 "Akita", "Beagle", "Border Collie", "Boxer", "Bulldog", "Bull Terrier", "Chihuhua", "Cocker", "Doberman", "Golden",
                 "Husky", "Labrador", "Maltese", "Pastor Alemán", "Pastor Inglés", "Pitbull", "Pointer", "Pug", "Rottweiler", "San Bernardo",
-                "Schnauzer", "Shih Tzu", "Yorkshire"
+                "Schnauzer", "Shih Tzu", "Yorkshire","Abisino", "American Shorthair", "Bengala", "Bobtail", "British", "Burmés", "Cornish Rex", "Dragon Li", "Exótico", "Himalayo",
+                "Main Coon", "Nebelung", "Noruego", "Ocicat", "Persa", "Peterbald", "Ragdoll", "Sagrado de Birmania", "Savannah", "Scottish Fold",
+                "Siamés", "Siberiano", "Sphynx", "Tonkinés"
         };
         final String[] razasGato = {
                 "Abisino", "American Shorthair", "Bengala", "Bobtail", "British", "Burmés", "Cornish Rex", "Dragon Li", "Exótico", "Himalayo",
                 "Main Coon", "Nebelung", "Noruego", "Ocicat", "Persa", "Peterbald", "Ragdoll", "Sagrado de Birmania", "Savannah", "Scottish Fold",
                 "Siamés", "Siberiano", "Sphynx", "Tonkinés"
         };
-        final String[] colores = {"Amarillento", "Amarronado", "Anaranjado", "Azulado", "Blanquecino", "Café", "Grisáceo",
+        final String[] colores = {
+                "Amarillento", "Amarronado", "Anaranjado", "Azulado", "Blanquecino", "Café", "Grisáceo",
                 "Magenta", "Negruzco", "Rojizo", "Rosado", "Verdoso", "Verduzco", "Violáceo"
         };
+
+        ArrayAdapter<String> adapterColor = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, colores);
+        adapterColor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                colorSeleccionado = colores[i];
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+        color.setAdapter(adapterColor);
 
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, animales);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, animales);
@@ -96,11 +114,7 @@ public class AnimalPerdidoFormFragment extends Fragment {
         tipoAnimal.setAdapter(adapter);
 
         ArrayAdapter<String> adapterAnimales;
-        if (animalSeleccionado.equalsIgnoreCase("Perro")){
-            adapterAnimales = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1, razasPerro);
-        } else {
-            adapterAnimales = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1, razasGato);
-        }
+        adapterAnimales = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1, razasPerro);
         adapterAnimales.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         raza.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -110,10 +124,6 @@ public class AnimalPerdidoFormFragment extends Fragment {
                 } else {
                     razaSeleccionada = razasGato[i];
                 }
-
-                if(animalSeleccionado.equalsIgnoreCase("Perro")){
-                    //
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -121,17 +131,7 @@ public class AnimalPerdidoFormFragment extends Fragment {
         });
         raza.setAdapter(adapterAnimales);
 
-        ArrayAdapter<String> adapterColor = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, colores);
-        adapterColor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                colorSeleccionado = colores[i];
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
+
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
